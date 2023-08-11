@@ -1,7 +1,5 @@
 SUBROUTINE normal_solve(a, b, x)
 !################################################################################
-IMPLICIT NONE
-!################################################################################
 REAL(kind=real64) ::             a(:,:)
 REAL(kind=real64) ::             b(:)
 REAL(kind=real64) ::             x(:)
@@ -20,8 +18,8 @@ IF( m < n )THEN
   flag = 1
   RETURN
 END IF
-ata(1:n,1:n) = matmul(transpose(a(1:m,1:n)), a(1:m,1:n))
-atb(1:n) = matmul(transpose(a(1:m,1:n)), b(1:m))
+ata = matmul(transpose(a), a)
+atb = matmul(transpose(a), b)
 CALL r8mat_cholesky_factor(n, ata, ata_c, flag)
 IF( flag /= 0 )THEN
   RETURN

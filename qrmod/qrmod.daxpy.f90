@@ -1,18 +1,27 @@
+!
+!   y + alpha x  --->  x
+!
+!	n      number of elements in vectors x and y
+!	da     alpha - scalar 
+!   dx     x
+!   incx   stride for vector x
+!   dy     y
+!   incy   stride for vector y
+
+
 SUBROUTINE daxpy(n, da, dx, incx, dy, incy)
 !################################################################################
-IMPLICIT NONE
+INTEGER(kind=int32), intent(in) ::               n
+REAL(kind=real64), intent(in) ::                 da
+REAL(kind=real64), intent(in) ::                 dx(*)
+INTEGER(kind=int32), intent(in) ::               incx
+REAL(kind=real64), intent(inout) ::              dy(*)
+INTEGER(kind=int32), intent(in) ::               incy
 !################################################################################
-INTEGER(kind=int32) ::              n
-REAL(kind=real64) ::                da
-REAL(kind=real64)                   dx(*)
-INTEGER(kind=int32) ::              incx
-REAL(kind=real64)                   dy(*)
-INTEGER(kind=int32) ::              incy
-!################################################################################
-INTEGER(kind=int32) ::              i
-INTEGER(kind=int32) ::              ix
-INTEGER(kind=int32) ::              iy
-INTEGER(kind=int32) ::              m
+INTEGER(kind=int32) ::                           i
+INTEGER(kind=int32) ::                           ix
+INTEGER(kind=int32) ::                           iy
+INTEGER(kind=int32) ::                           m
 !################################################################################
 
 IF(n <= 0)THEN

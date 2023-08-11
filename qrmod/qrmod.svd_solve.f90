@@ -1,4 +1,6 @@
-SUBROUTINE svd_solve (a, b, x )
+!    Singular Value Decomposition
+
+SUBROUTINE svd_solve(a, b, x)
 !################################################################################
 IMPLICIT NONE
 !################################################################################
@@ -28,12 +30,12 @@ REAL(kind=real64) ::             work(SIZE(a, 1))
 m = SIZE(a, 1)
 n = SIZE(a, 2)
 !  Get the SVD.
-a_copy(1:m,1:n) = a(1:m,1:n)
+a_copy = a
 lda = m
 ldu = m
 ldv = n
 job = 11
-CALL dsvdc ( a_copy, lda, m, n, sdiag, e, u, ldu, v, ldv, work, job, info )
+CALL dsvdc (a_copy, lda, m, n, sdiag, e, u, ldu, v, ldv, work, job, info )
 if ( info /= 0 ) then
   write ( *, '(a)' ) ' '
   write ( *, '(a)' ) 'SVD_SOLVE - Failure!'
@@ -42,24 +44,24 @@ if ( info /= 0 ) then
   write ( *, '(a,i8)' ) '  value of the error flag, INFO = ', info
   stop
 end if
-ub(1:m) = matmul ( transpose ( u(1:m,1:m) ), b(1:m) )
-sub(1:n) = 0.0D+00
+ub = matmul(transpose(u), b)
+sub = 0.0D+00
 !  For singular problems, there may be tiny but nonzero singular values
 !  that should be ignored.  This is a reasonable attempt to avoid such 
 !  problems, although in general, the user might wish to control the tolerance.
-smax = maxval ( sdiag(1:n) )
+smax = maxval(sdiag)
 if ( smax <= epsilon ( smax ) ) then
   smax = 1.0D+00
 end if
 stol = epsilon ( smax ) * smax
-do i = 1, n
+do concurrent(i=1:n)
   if ( i <= m ) then
     if ( stol <= sdiag(i) ) then
       sub(i) = ub(i) / sdiag(i)
     end if
   end if
 end do
-x(1:n) = matmul ( v(1:n,1:n), sub(1:n) )
+x = matmul(v, sub)
 RETURN
 !################################################################################
 END SUBROUTINE svd_solve

@@ -1,36 +1,37 @@
-MODULE qrmod
+module qrmod
 
-USE kinds
+use kinds
 
-IMPLICIT NONE
+implicit none
+! private
+
+! public :: qr_solve, normal_solve, svd_solve
 
 !############################################################
-CONTAINS
+contains
 !############################################################
 
-INCLUDE "qrmod.comments.f90"
-INCLUDE "qrmod.daxpy.f90"
-INCLUDE "qrmod.ddot.f90"
-INCLUDE "qrmod.dnrm2.f90"
-INCLUDE "qrmod.dqrank.f90"
-INCLUDE "qrmod.dqrdc.f90"
-INCLUDE "qrmod.dqrls.f90"
-INCLUDE "qrmod.dqrlss.f90"
-INCLUDE "qrmod.dqrsl.f90"
-INCLUDE "qrmod.drot.f90"
-INCLUDE "qrmod.drotg.f90"
-INCLUDE "qrmod.dscal.f90"
-INCLUDE "qrmod.dsvdc.f90"
-INCLUDE "qrmod.dswap.f90"
-INCLUDE "qrmod.ludecomp.f90"
-INCLUDE "qrmod.lu_solve.f90"
-INCLUDE "qrmod.normal_solve.f90"
-INCLUDE "qrmod.qr_solve.f90"
-INCLUDE "qrmod.svd_solve.f90"
-INCLUDE "qrmod.r8mat_cholesky_factor.f90"
-INCLUDE "qrmod.r8mat_cholesky_solve.f90"
-INCLUDE "qrmod.r8mat_l_solve.f90"
-INCLUDE "qrmod.r8mat_lt_solve.f90"
+include "qrmod.comments.f90"
+include "qrmod.daxpy.f90"
+include "qrmod.ddot.f90"
+include "qrmod.dnrm2.f90"
+include "qrmod.dqrank.f90"
+include "qrmod.dqrdc.f90"
+include "qrmod.dqrls.f90"
+include "qrmod.dqrlss.f90"
+include "qrmod.dqrsl.f90"
+include "qrmod.drot.f90"
+include "qrmod.drotg.f90"
+include "qrmod.dscal.f90"
+include "qrmod.dsvdc.f90"
+include "qrmod.dswap.f90"
+include "qrmod.normal_solve.f90"
+include "qrmod.qr_solve.f90"
+include "qrmod.svd_solve.f90"
+include "qrmod.r8mat_cholesky_factor.f90"
+include "qrmod.r8mat_cholesky_solve.f90"
+include "qrmod.r8mat_l_solve.f90"
+include "qrmod.r8mat_lt_solve.f90"
 
 
-END MODULE qrmod
+end module qrmod

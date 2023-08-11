@@ -1,7 +1,5 @@
 SUBROUTINE dqrdc ( a, lda, n, p, qraux, jpvt, work, job )
 !################################################################################
-IMPLICIT NONE
-!################################################################################
 REAL(kind=real64) ::             a(lda,p)
 INTEGER(kind=int32) ::           lda
 INTEGER(kind=int32) ::           n
@@ -59,9 +57,9 @@ IF(job /= 0)THEN
   END DO
 END IF
 !  Compute the norms of the free columns.
-DO j = pl, pu
+do concurrent(j = pl:pu)
   qraux(j) = dnrm2(n, a(1,j), 1)
-END DO
+end do
 work(pl:pu) = qraux(pl:pu)
 !  Perform the Householder reduction of A.
 lup = min(n, p)

@@ -1,7 +1,5 @@
 SUBROUTINE dqrsl ( a, lda, n, k, qraux, y, qy, qty, b, rsd, ab, job, info )
 !################################################################################
-IMPLICIT NONE
-!################################################################################
 REAL(kind=real64) ::             a(lda,*)
 INTEGER(kind=int32) ::           lda
 INTEGER(kind=int32) ::           n

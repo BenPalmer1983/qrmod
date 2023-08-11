@@ -1,7 +1,5 @@
 SUBROUTINE dqrlss(a, lda, m, n, kr, b, x, r, jpvt, qraux)
 !################################################################################
-IMPLICIT NONE
-!################################################################################
 REAL(kind=real64) ::             a(lda,n)
 INTEGER(kind=int32) ::           lda
 INTEGER(kind=int32) ::           m

@@ -1,17 +1,15 @@
-FUNCTION dnrm2 (n, x, incx)
+pure function dnrm2 (n, x, incx)
 !################################################################################
-IMPLICIT NONE
+INTEGER(kind=int32), intent(in) ::               n
+REAL(kind=real64), intent(in) ::                 x(*)
+INTEGER(kind=int32), intent(in) ::               incx
 !################################################################################
-INTEGER(kind=int32) ::           n
-REAL(kind=real64) ::             x(*)
-INTEGER(kind=int32) ::           incx
-!################################################################################
-REAL(kind=real64) ::             absxi
-REAL(kind=real64) ::             dnrm2
-INTEGER(kind=int32) ::           ix
-REAL(kind=real64) ::             norm
-REAL(kind=real64) ::             scale
-REAL(kind=real64) ::             ssq
+REAL(kind=real64) ::                             absxi
+REAL(kind=real64) ::                             dnrm2
+INTEGER(kind=int32) ::                           ix
+REAL(kind=real64) ::                             norm
+REAL(kind=real64) ::                             scale
+REAL(kind=real64) ::                             ssq
 !################################################################################
 IF(n < 1 .OR. incx < 1)THEN
   norm  = 0.0D+00
@@ -36,4 +34,4 @@ end if
 dnrm2 = norm
 RETURN
 !################################################################################
-END FUNCTION dnrm2 
+end function dnrm2 

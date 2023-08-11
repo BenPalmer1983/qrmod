@@ -1,8 +1,6 @@
 SUBROUTINE dqrls ( a, lda, m, n, tol, kr, b, x, r, jpvt, qraux, work, &
   itask, ind )
 !################################################################################
-IMPLICIT NONE
-!################################################################################
 REAL(kind=real64) ::             a(lda,n)
 INTEGER(kind=int32) ::           lda
 INTEGER(kind=int32) ::           m
