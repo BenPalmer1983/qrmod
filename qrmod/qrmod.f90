@@ -4,9 +4,9 @@ USE kinds
 
 IMPLICIT NONE
 
-
+!############################################################
 CONTAINS
-
+!############################################################
 
 INCLUDE "qrmod.comments.f90"
 INCLUDE "qrmod.daxpy.f90"
@@ -31,11 +31,6 @@ INCLUDE "qrmod.r8mat_cholesky_factor.f90"
 INCLUDE "qrmod.r8mat_cholesky_solve.f90"
 INCLUDE "qrmod.r8mat_l_solve.f90"
 INCLUDE "qrmod.r8mat_lt_solve.f90"
-
-
-
-
-
 
 
 END MODULE qrmod

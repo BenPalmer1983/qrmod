@@ -1,15 +1,15 @@
-MODULE kinds
+module kinds
 
 IMPLICIT NONE
 
-INTEGER, PARAMETER :: real32 = Selected_Real_Kind(6,37)
-INTEGER, PARAMETER :: real64 = Selected_Real_Kind(15,307)
-INTEGER, PARAMETER :: real128 = Selected_Real_Kind(33,4931) 
+integer, parameter, public :: REAL32 = Selected_Real_Kind(6,37)
+integer, parameter, public :: REAL64 = Selected_Real_Kind(15,307)
+integer, parameter, public :: REAL128 = Selected_Real_Kind(33,4931) 
 
-INTEGER, PARAMETER :: int8 = Selected_Int_Kind(1) 
-INTEGER, PARAMETER :: int16 = Selected_Int_Kind(4)
-INTEGER, PARAMETER :: int32 = Selected_Int_Kind(8)
-INTEGER, PARAMETER :: int64 = Selected_Int_Kind(12)
-INTEGER, PARAMETER :: int128 = Selected_Int_Kind(32) 
+integer, parameter, public :: INT8 = Selected_Int_Kind(1) 
+integer, parameter, public :: INT16 = Selected_Int_Kind(4)
+integer, parameter, public :: INT32 = Selected_Int_Kind(8)
+integer, parameter, public :: INT64 = Selected_Int_Kind(12)
+integer, parameter, public :: INT128 = Selected_Int_Kind(32) 
 
-END MODULE kinds
+end module kinds

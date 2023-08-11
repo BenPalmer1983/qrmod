@@ -19,13 +19,13 @@ REAL(kind=real64) :: sum_term
 x(:) = 0.0d0    ! A x = b
 y(:) = 0.0d0    ! L y = b,    U x = y
 n = size(a,1)
-FORALL (j=1:n,i=1:n)
+do concurrent (j=1:n, i=1:n)
   aa(i,j) = a(i,j)
   upper(i,j) = 0.0d0
-  p(i,j) = merge(1  ,0  ,i.eq.j)
+  p(i,j) = merge(1, 0, i.eq.j)
   lower(i,j) = merge(1d0,0d0,i.eq.j)
-END FORALL
-CALL ludecomp(aa, ipiv)
+end do
+call ludecomp(aa, ipiv)
 DO i = 1,n
   lower(i, :i-1) = aa(i, :i-1)
   upper(i,i:   ) = aa(i,i:   )
